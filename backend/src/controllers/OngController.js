@@ -10,13 +10,14 @@ module.exports = {
     },
 
     async create(req,res){
-        const {nome} = req.body;
+        const {nome,senha} = req.body;
     
         const id = crypto.randomBytes(4).toString('HEX');
         
         await connection('ongs').insert({
             id,
-            nome
+            nome, 
+            senha
         });
 
         return res.json({ id });

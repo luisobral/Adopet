@@ -3,8 +3,9 @@ exports.up = function(knex) {
         table.increments();
         table.string('nome').notNullable();
         table.integer('idade').notNullable();
-        table.boolean('chipado').notNullable();
+        table.string('chipado').notNullable();
         table.string('personalidade').notNullable();
+        table.string('senha').notNullable();
 
         table.integer('id_ong').notNullable();
         table.integer('id_categoria').notNullable();

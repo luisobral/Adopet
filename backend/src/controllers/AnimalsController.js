@@ -19,7 +19,7 @@ module.exports = {
     },
 
     async create(req,res){
-        const {nome,idade,chipado,personalidade,id_categoria,id_raca} = req.body;
+        const {nome,idade,chipado,personalidade,id_categoria,id_raca, senha} = req.body;
 
         const id_ong = req.headers.authorization;
 
@@ -31,6 +31,7 @@ module.exports = {
             id_ong,
             id_categoria,
             id_raca,
+            senha,
         });
 
         return res.json({id});

@@ -41,6 +41,24 @@
     width: 100%;
     max-width: 450px;   
 }
+.new-animal-container .content form .input-number{
+  width: 100%;
+  display: flex;
+}
+
+.new-animal-container .content form .input-number input,
+.new-animal-container .content form .input-number label,
+.new-animal-container .content form .input-number label select{
+    width: 100%;
+}
+
+.new-animal-container .content form .input-number label + label{
+  margin-left: 10%;
+}
+.new-animal-container .content form input + select {
+  margin-left: 5%;
+  margin-top: 0;
+}
 
 .new-animal-container .content form input, textarea,select{
     margin-top: 8px;
@@ -52,6 +70,23 @@
 
 .new-animal-container .content form .input-group input + input {
     margin-left: 8px;
+}
+
+
+
+.new-animal-container .content form label h3{
+  display: flex;
+  width: 40%;
+}
+
+.new-animal-container .content form .input-group label,
+.new-animal-container .content form .input-group label select {
+  width: 100%;
+}
+
+
+.new-animal-container .content form .input-group label + label {
+  margin-left: 10%;
 }
 
 .dropbtn {
