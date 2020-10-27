@@ -11,7 +11,7 @@ module.exports = {
         .join('ongs','ongs.id', '=','animals.id_ong')
         .limit(5)
         .offset((page - 1) * 5)
-        .select(['animals.*','ongs.nome']);
+        .select(['animals.*','ongs.nome_ong']);
 
         res.header("X-Total-Count", count['count(*)']);
 

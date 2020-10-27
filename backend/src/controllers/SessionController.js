@@ -3,7 +3,7 @@ const connection = require("../database/connection");
      async create(req,res){
          const {id} = req.body;
 
-         const ong = await connection('ongs').where('id',id).select('nome').first();
+         const ong = await connection('ongs').where('id',id).select('nome_ong').first();
      
         if(!ong){
             return res.status(400).json({

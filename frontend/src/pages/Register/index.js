@@ -11,6 +11,7 @@ export default function Register (){
     const [email,setEmail] = useState('');
     const [whatsApp,setWhatsApp] = useState('');
     const [city,setCity] = useState('');
+    const [uf,setUf] = useState('');
 
     async function handleRegister(e){
         e.preventDefault();
