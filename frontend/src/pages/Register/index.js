@@ -7,16 +7,15 @@ import api from '../../services/api';
 
 export default function Register (){
     const history = useHistory();
-    const [nome,setNome] = useState('');
+    const [nome_ong,setNome] = useState('');
     const [email,setEmail] = useState('');
     const [whatsApp,setWhatsApp] = useState('');
     const [city,setCity] = useState('');
-    const [uf,setUf] = useState('');
 
     async function handleRegister(e){
         e.preventDefault();
         const data = {
-            nome,email,whatsApp,city,uf
+            nome_ong,email,whatsApp,city,uf
         };
         try {
             const res = await api.post('ongs',data);
@@ -40,7 +39,7 @@ export default function Register (){
                     </Link>
                 </section>
                 <form onSubmit={handleRegister}>
-                    <input placeholder="Nome da Ong" value={nome} onChange={e => setNome(e.target.value)}/>
+                    <input placeholder="Nome da Ong" value={nome_ong} onChange={e => setNome(e.target.value)}/>
                     <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
                     <input placeholder="WhatsApp" value={whatsApp} onChange={e => setWhatsApp(e.target.value)}/>
 

@@ -1,11 +1,10 @@
 exports.up = function(knex) {
     return knex.schema.createTable('animals',function(table){
         table.increments();
-        table.string('nome').notNullable();
+        table.string('nome_animal').notNullable();
         table.integer('idade').notNullable();
         table.string('chipado').notNullable();
         table.string('personalidade').notNullable();
-        table.string('senha').notNullable();
 
         table.integer('id_ong').notNullable();
         table.integer('id_categoria').notNullable();

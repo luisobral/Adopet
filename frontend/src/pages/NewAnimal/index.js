@@ -8,27 +8,27 @@ import './style.css';
 
 
 export default function NewAnimal(){
-    const [categorias_array, setCategorias_array] = useState([]);
-    const [categorias,setCategorias] = useState('');
-    const [racas_array, setRacas_array] = useState([]);
-    const [racas, setRacas] = useState('');
+    const [categorias, setCategorias] = useState([]);
+    const [id_categoria, setid_Categoria] = useState('');    
+    const [racas, setRacas] = useState([]);
+    const [id_raca, setid_Raca] = useState('');
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState(0);
     const [chipado, setChipado] = useState('');
     const [personalidade, setPersonalidade] = useState('');
 
+
     const ongId = localStorage.getItem('ongId');
     const history = useHistory();
-
     useEffect(() => {
         api.get('categorias').then(response => {
-        setCategorias_array(response.data);
+        setCategorias(response.data);
     })
     }, []);
 
     useEffect(() => {
         api.get('racas').then(response => {
-        setRacas_array(response.data);
+        setRacas(response.data);
     })
     }, []);
 
@@ -39,18 +39,21 @@ export default function NewAnimal(){
             idade,
             chipado,
             personalidade,
-            categorias,
-            racas
+            id_categoria,
+            id_raca
         };
         try {
-            await api.post('animals',data, {
-                headers: ongId,
+            
+            console.log(data);
+            await api.post('animals',data, 
+                {headers:{
+                    Authorization:ongId,
+                }
             });
+            
             history.push('/profile');
         } catch (error) {
             
-            console.log(data);
-            console.log(ongId);
             alert('Erro no cadastro, tente novamente');
         }
     }
@@ -75,11 +78,12 @@ export default function NewAnimal(){
                         </label>
                         <label>
                             <h3>Chipado:</h3>
-                            <select value={chipado} onChange={e => setChipado(e.target.value)}> 
-                                <option value='sim'>
+                            <select id="chip" onChange={e => setChipado(e.target.value)}> 
+                            <option selected></option>
+                                <option value="sim">
                                     sim
                                 </option>
-                                <option value='nao'>
+                                <option value="nao">
                                     não
                                 </option>
                             </select>
@@ -91,9 +95,10 @@ export default function NewAnimal(){
                     <div className="input-group">
                     <label>
                         <h3>Categorias:</h3>
-                    <select>
-                        {categorias_array.map(categoria => (
-                            <option key={categoria.id} value={categorias} onChange={e => setCategorias(e.target.value)}>
+                    <select id="categoria" onChange={e => setid_Categoria(e.target.value)}>
+                        <option selected></option>
+                        {categorias.map(categoria => (
+                            <option key={categoria.id} value={categoria.id}>
                                 {categoria.nome}
                             </option>
                         )
@@ -102,9 +107,10 @@ export default function NewAnimal(){
                     </label>
                     <label>
                         <h3>Raças:</h3>
-                    <select>
-                        {racas_array.map(raca => (
-                            <option key={raca.id} value={racas} onChange={e => setRacas(e.target.value)}>
+                    <select id='racas' onChange={e => setid_Raca(e.target.value)}>
+                        <option selected></option>
+                        {racas.map(raca => (
+                            <option key={raca.id} value={raca.id} >
                                 {raca.nome}
                             </option>
                         )

@@ -57,13 +57,30 @@ export default function Profile(){
             <ul>
                 {animals.map(animal => (
                     <li key={animal.id}>
-                        <strong>Nome:</strong>
-                        <p>{animal.nome}</p>
-                        <strong>Idade:</strong>
-                        <p>{animal.idade}</p>
-                        <strong>Personalidade:</strong>
-                        <p>{animal.personalidade}</p>
-
+                        <div className="ordenar">
+                            <strong>Nome:</strong>
+                            <p>{animal.nome}</p>
+                        </div>
+                        <div className="ordenar">
+                            <strong>Idade:</strong>
+                            <p>{animal.idade}</p>
+                        </div>
+                        <div className="ordenar">
+                            <strong>Personalidade:</strong>
+                            <p>{animal.personalidade}</p>
+                        </div>
+                        <div className="ordenar">
+                            <strong>Tipo:</strong>
+                            <p>{animal.id_categoria}</p>
+                        </div>
+                        <div className="ordenar">
+                            <strong>Raça:</strong>
+                            <p>{animal.id_raca}</p>
+                        </div>
+                        <div className="ordenar">
+                            <strong>Chipado:</strong>
+                            <p>{animal.chipado}</p>
+                        </div>
                         <button onClick={() => handleDeletAnimal(animal.id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3"/>
                         </button>

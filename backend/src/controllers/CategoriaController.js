@@ -9,10 +9,10 @@ module.exports = {
     },
 
     async create(req,res){
-        const {nome} = req.body;
+        const {nome_categoria} = req.body;
         
         const [id] = await connection('categorias').insert({
-            nome
+            nome_categoria
         });
 
         return res.json({ id });

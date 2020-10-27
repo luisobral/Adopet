@@ -19,19 +19,24 @@ module.exports = {
     },
 
     async create(req,res){
-        const {nome,idade,chipado,personalidade,id_categoria,id_raca, senha} = req.body;
+        const {
+            nome_animal,
+            idade,
+            chipado,
+            personalidade,
+            id_categoria,
+            id_raca} = req.body;
 
         const id_ong = req.headers.authorization;
 
         const [id] = await connection('animals').insert({
-            nome,
+            nome_animal,
             idade,
             chipado,
             personalidade,
             id_ong,
             id_categoria,
             id_raca,
-            senha,
         });
 
         return res.json({id});
