@@ -12,7 +12,7 @@ export default function NewAnimal(){
     const [id_categoria, setid_Categoria] = useState('');    
     const [racas, setRacas] = useState([]);
     const [id_raca, setid_Raca] = useState('');
-    const [nome, setNome] = useState('');
+    const [nome_animal, setNome] = useState('');
     const [idade, setIdade] = useState(0);
     const [chipado, setChipado] = useState('');
     const [personalidade, setPersonalidade] = useState('');
@@ -35,7 +35,7 @@ export default function NewAnimal(){
     async function handleAnimal(e){
         e.preventDefault();
         const data = {
-            nome,
+            nome_animal,
             idade,
             chipado,
             personalidade,
@@ -70,7 +70,7 @@ export default function NewAnimal(){
                     </Link>
                 </section>
                 <form>
-                    <input type="text" placeholder="Nome do Animal" value={nome} onChange={e => setNome(e.target.value)}/>
+                    <input type="text" placeholder="Nome do Animal" value={nome_animal} onChange={e => setNome(e.target.value)}/>
                     <div className="input-number">
                         <label>
                             <h3>Idade:</h3>
@@ -99,7 +99,7 @@ export default function NewAnimal(){
                         <option selected></option>
                         {categorias.map(categoria => (
                             <option key={categoria.id} value={categoria.id}>
-                                {categoria.nome}
+                                {categoria.nome_categoria}
                             </option>
                         )
                         )}
@@ -111,7 +111,7 @@ export default function NewAnimal(){
                         <option selected></option>
                         {racas.map(raca => (
                             <option key={raca.id} value={raca.id} >
-                                {raca.nome}
+                                {raca.nome_raca}
                             </option>
                         )
                         )}

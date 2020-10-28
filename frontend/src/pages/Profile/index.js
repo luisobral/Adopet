@@ -35,6 +35,12 @@ export default function Profile(){
         }
     }
 
+    async function handlehistorico(id){
+        localStorage.setItem('animalId',id);
+
+        history.push(`/historico`);
+    };
+
     async function handleLogout(){
         localStorage.clear();   
 
@@ -59,7 +65,7 @@ export default function Profile(){
                     <li key={animal.id}>
                         <div className="ordenar">
                             <strong>Nome:</strong>
-                            <p>{animal.nome}</p>
+                            <p>{animal.nome_animal}</p>
                         </div>
                         <div className="ordenar">
                             <strong>Idade:</strong>
@@ -84,6 +90,9 @@ export default function Profile(){
                         <button onClick={() => handleDeletAnimal(animal.id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3"/>
                         </button>
+                        <button onClick={() => handlehistorico(animal.id)} type="button">
+                            <p>Clique aqui para ver o histórico do {animal.nome_animal}</p>
+                        </button>                        
                     </li>
                 )
                 )}
