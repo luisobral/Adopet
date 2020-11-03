@@ -7,6 +7,7 @@ const RacaController = require('./controllers/RacaController');
 const CategoriaController = require('./controllers/CategoriaController');
 const VacinaController = require('./controllers/VacinaController');
 const HistoricoController = require('./controllers/HistoricoController');
+const UsuarioController = require('./controllers/UsuarioController');
 
 
 const routes = express.Router();
@@ -37,5 +38,10 @@ routes.post('/animals',AnimalsController.create);
 routes.delete('/animals/:id', AnimalsController.delete);
 
 routes.get('/profile',ProfileController.index);
+
+routes.get('/usuario',UsuarioController.index);
+routes.post('/usuario',UsuarioController.create);
+
+
 
 module.exports = routes;
