@@ -43,8 +43,6 @@ export default function NewAnimal(){
             id_raca
         };
         try {
-            
-            console.log(data);
             await api.post('animals',data, 
                 {headers:{
                     Authorization:ongId,

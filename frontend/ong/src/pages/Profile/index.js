@@ -38,6 +38,22 @@ export default function Profile(){
     async function handlehistorico(id){
         localStorage.setItem('animalId',id);
 
+        let id_vacinas = 1;
+        const data = {id_vacinas};
+
+        const {historico, vacinas} = await api.get('historicos',data,{headers:{
+            Authorization:ongId,
+        }
+        });
+        console.log(`${id} ${ongId}`);
+        if (historico != "undefined"){
+           
+            api.post('historicos',data,{headers:{
+                Authorization:ongId,
+                animal:id,
+                }
+            });
+        }
         history.push(`/historico`);
     };
 
@@ -90,9 +106,9 @@ export default function Profile(){
                         <button onClick={() => handleDeletAnimal(animal.id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3"/>
                         </button>
-                        <button onClick={() => handlehistorico(animal.id)} type="button">
+                        <a onClick={() => handlehistorico(animal.id)} type="button">
                             <p>Clique aqui para ver o histórico do {animal.nome_animal}</p>
-                        </button>                        
+                        </a>                        
                     </li>
                 )
                 )}
