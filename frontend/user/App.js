@@ -5,11 +5,12 @@ import { StyleSheet, SafeAreaView } from "react-native";
 // nossos imports
 import GlobalStyles from "./app/config/GlobalStyles";
 import HomeScreen from "./app/scenes/HomeScreen";
+import Index from "./app/registerU/index";
 
 export default function App() {
   return (
     <SafeAreaView style={GlobalStyles.droidSafeArea}>
-      <HomeScreen />
+      <Index />
     </SafeAreaView>
   );
 }

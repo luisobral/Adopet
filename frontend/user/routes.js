@@ -9,8 +9,9 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
+                <Router>
                 <Route path='/registerU/' component={registerU}/>
-
+                </Router>
 
             </Switch>
         </BrowserRouter>
